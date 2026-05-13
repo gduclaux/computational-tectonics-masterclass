@@ -1291,9 +1291,9 @@ crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700.
 crust.radiogenicHeatProd = <span class="number">7.67e-7 * u.watt / u.meter**3</span>
 
 <span class="comment"># rheologies: viscosity and plasticity:</span>
-rh = GEO.ViscousCreepRegistry()
-air.viscosity    = <span class="number">1.0e18  * u.pascal * u.second</span><span class="comment"># constant value</span>
-crust.viscosity  = <span class="number">0.1 *</span> <span class="string">rh.Wet_Olivine_Dislocation_Goetze_et_al_1978</span><span class="comment"># loaded from registry</span>
+rh = GEO.ViscousCreepRegistry() <span class="comment"> # load viscous rheology registry</span>
+air.viscosity    = <span class="number">1.0e18  * u.pascal * u.second</span><span class="comment"> # constant value</span>
+crust.viscosity  = <span class="number">0.1 *</span> <span class="string">rh.Wet_Olivine_Dislocation_Goetze_et_al_1978</span><span class="comment"> # loaded from registry</span>
 
 crust.plasticity = GEO.DruckerPrager(name=<span class="string">"Continental Crust"</span>,
                                                 cohesion=<span class="number">15. * u.megapascal</span>,
@@ -1324,7 +1324,6 @@ crust.plasticity = GEO.DruckerPrager(name=<span class="string">"Continental Crus
 <span class="function">Model</span>.solver.set_inner_method(<span class="string">"mumps"</span>)
 <span class="function">Model</span>.solver.set_penalty(<span class="number">1e6</span>)
 <span class="function">Model</span>.run_for(<span class="number">1.0* u.megayears</span>, checkpoint_interval=<span class="number">100.0* u.kiloyears</span>)
-      
       </pre>
     </div>
 
