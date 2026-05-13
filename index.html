@@ -1274,11 +1274,11 @@ Model = GEO.Model(elementRes=<span class="number">(64, 32)</span>,
                   gravity=<span class="number">(0.0, -9.81 * u.meter / u.second**2)</span>)
 
 <span class="comment"># Model outputs will be written in the following folder:</span>
-Model.outputDir=<span class="string">"result_model1"</span>
+<span class="function">Model</span>.outputDir=<span class="string">"result_model1"</span>
 
 <span class="comment"># 4. Define materials' geometry (swarm)</span>
-air = Model.add_material(name=<span class="string">"Air"</span>, shape=GEO.shapes.Layer2D(top=Model.top, bottom=Model.bottom))
-crust = Model.add_material(name=<span class="string">"Crust"</span>, shape=GEO.shapes.Layer2D(top=<span class="number">-0*u.kilometer</span>, bottom=Model.bottom))
+air = <span class="function">Model</span>.add_material(name=<span class="string">"Air"</span>, shape=GEO.shapes.Layer2D(top=<span class="function">Model</span>.top, bottom=<span class="function">Model</span>.bottom))
+crust = <span class="function">Model</span>.add_material(name=<span class="string">"Crust"</span>, shape=GEO.shapes.Layer2D(top=<span class="number">-0*u.kilometer</span>, bottom=<span class="function">Model</span>.bottom))
 
 <span class="comment"># 5. Define materials'mechanical and thermal properties</span>
 air.density    = <span class="number">1. * u.kilogram / u.metre**3</span>
@@ -1286,8 +1286,8 @@ crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700.
                                         thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span>
 
 <span class="comment"># thermal diffusivity and heat capacity, and radiogenic heat production:</span>
-Model.diffusivity = <span class="number">9e-7 * u.metre**2 / u.second </span>
-Model.capacity    = <span class="number">1000. * u.joule / (u.kelvin * u.kilogram)</span>
+<span class="function">Model</span>.diffusivity = <span class="number">9e-7 * u.metre**2 / u.second </span>
+<span class="function">Model</span>.capacity    = <span class="number">1000. * u.joule / (u.kelvin * u.kilogram)</span>
 crust.radiogenicHeatProd = <span class="number">7.67e-7 * u.watt / u.meter**3</span>
 
 <span class="comment"># viscosity and plasticity:</span>
@@ -1304,26 +1304,26 @@ crust.plasticity = GEO.DruckerPrager(name=<span class="string">"Continental Crus
 
 
 <span class="comment"># 6. Define thermal and velocity boundary conditions</span>
-Model.set_velocityBCs(left=<span class="number">[0 * u.centimeter / u.years, None]</span>,
+<span class="function">Model</span>.set_velocityBCs(left=<span class="number">[0 * u.centimeter / u.years, None]</span>,
                       right=<span class="number">[0 * u.centimeter / u.years, None]</span>,
                       bottom=<span class="number">[None, 0.0]</span>);
 
-Model.set_temperatureBCs(top=<span class="number">293.15 * u.degK</span>, 
+<span class="function">Model</span>.set_temperatureBCs(top=<span class="number">293.15 * u.degK</span>, 
                          bottom=<span class="number">1273.15 * u.degK</span>,
                          materials=[<span class="number">(<span class="string">air</span>, 293.15 * u.degK)</span>]);
 
 
 
 <span class="comment"># 7. run the model</span>
-Model.minViscosity = <span class="number">1.0e18 * u.pascal * u.second</span>
-Model.maxViscosity = <span class="number">1.0e23 * u.pascal * u.second</span>
+<span class="function">Model</span>.minViscosity = <span class="number">1.0e18 * u.pascal * u.second</span>
+<span class="function">Model</span>.maxViscosity = <span class="number">1.0e23 * u.pascal * u.second</span>
 <span class="comment"># now initialise the model at t=0 for T and P </span>
-Model.init_model(temperature=<span class="string">"steady-state"</span>, pressure=<span class="string">"lithostatic"</span>)
+<span class="function">Model</span>.init_model(temperature=<span class="string">"steady-state"</span>, pressure=<span class="string">"lithostatic"</span>)
 
 <span class="comment"># solve the model </span>
-Model.solver.set_inner_method(<span class="string">"mumps"</span>)
-Model.solver.set_penalty(<span class="number">1e6</span>)
-Model.run_for(<span class="number">1.0* u.megayears</span>, checkpoint_interval=<span class="number">100.0* u.kiloyears</span>)
+<span class="function">Model</span>.solver.set_inner_method(<span class="string">"mumps"</span>)
+<span class="function">Model</span>.solver.set_penalty(<span class="number">1e6</span>)
+<span class="function">Model</span>.run_for(<span class="number">1.0* u.megayears</span>, checkpoint_interval=<span class="number">100.0* u.kiloyears</span>)
       
       </pre>
     </div>
