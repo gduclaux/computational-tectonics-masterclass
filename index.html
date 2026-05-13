@@ -633,7 +633,7 @@
       <div class="hero-meta">
         <span class="hero-meta-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          2 days (08:30 – 17:00)
+          2 days (09:00 – 17:00)
         </span>
         <span class="hero-meta-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -672,7 +672,7 @@
     <div class="section-header reveal">
       <p class="section-label">// Learning Outcomes</p>
       <h2 class="section-title">What you will gain</h2>
-      <p class="section-lead">By the end of the masterclass you will be able to frame a geological question as a numerical forward model, implement it in Underworld2, and extract science from the output.</p>
+      <p class="section-lead">By the end of the masterclass you will be able to frame a geological question as a simple numerical forward model, implement it in 2D in Underworld2, and extract science from the output.</p>
     </div>
     <div class="objectives-grid">
       <div class="obj-card reveal">
@@ -688,12 +688,12 @@
       <div class="obj-card reveal">
         <div class="obj-card-icon">🔨</div>
         <div class="obj-card-title">Design and run simple models</div>
-        <p class="obj-card-text">Build a 2D lithospheric model from scratch — define geometry, material properties, rheology, and numerical solvers — then run it and iterate.</p>
+        <p class="obj-card-text">Build a 2D crustal or lithospheric model from scratch — define geometry, material properties, rheology, and numerical solvers — then run it and iterate.</p>
       </div>
       <div class="obj-card reveal">
         <div class="obj-card-icon">📊</div>
         <div class="obj-card-title">Visualise and analyse results</div>
-        <p class="obj-card-text">Use ParaView for 3D post-processing, ImageJ for image analysis, and Python (HDF5 + matplotlib) for quantitative diagnostic metrics.</p>
+        <p class="obj-card-text">Use ParaView for post-processing, ImageJ for image analysis, and Python (HDF5 + matplotlib) for quantitative diagnostic metrics.</p>
       </div>
     </div>
   </div>
@@ -712,7 +712,7 @@
     <ul class="prereq-list">
       <li class="prereq-item reveal">
         <div class="prereq-dot"></div>
-        <div class="prereq-text"><strong>Geological curiosity</strong> Basic familiarity with plate tectonics, lithospheric structure, and the geological questions you'd like to explore numerically.</div>
+        <div class="prereq-text"><strong>Geological curiosity</strong> Basic familiarity with rock mechanics, plate tectonics, lithospheric structure, and the geological questions you'd like to explore numerically.</div>
       </li>
       <li class="prereq-item reveal">
         <div class="prereq-dot"></div>
@@ -745,7 +745,7 @@
     <div class="section-header reveal">
       <p class="section-label">// Hourly Programme</p>
       <h2 class="section-title">2-Day Schedule</h2>
-      <p class="section-lead">Each teaching block is designed for 90 minutes of focused activity, punctuated by real breaks. Days run from 08:30 to 17:00.</p>
+      <p class="section-lead">Each teaching block is designed for 60 to 90 minutes of focused activity, punctuated by real breaks. Days run from 09:00 to 17:00.</p>
     </div>
 
     <!-- LEGEND -->
@@ -768,33 +768,33 @@
       <div class="timeline">
 
         <div class="timeline-item is-logistics">
-          <div class="timeline-time"><span class="time-start">08:30</span>09:00</div>
+          <div class="timeline-time"><span class="time-start">09:00</span>09:10</div>
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
               <span class="timeline-title">Welcome &amp; Housekeeping</span>
               <span class="timeline-tag tag-logistics">Logistics</span>
-              <span class="duration-badge">30 min</span>
+              <span class="duration-badge">10 min</span>
             </div>
             <div class="timeline-desc">
-              Coffee, introductions, course overview, rules of the room, Q&amp;A expectations, emergency contacts.
+              Coffee?, introductions, course overview, rules of the room, Q&amp;A expectations.
             </div>
           </div>
         </div>
 
         <div class="timeline-item is-setup">
-          <div class="timeline-time"><span class="time-start">09:00</span>10:30</div>
+          <div class="timeline-time"><span class="time-start">09:10</span>10:45</div>
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
               <span class="timeline-title">Preamble: Install All The Software</span>
               <span class="timeline-tag tag-setup">Setup</span>
-              <span class="duration-badge">90 min</span>
+              <span class="duration-badge">85 min</span>
             </div>
             <div class="timeline-desc">
               <ul>
-                <li>Docker Desktop: pull the <code>underworldcode/underworld2</code> image; launch Jupyter via Docker</li>
-                <li>Volume-map your local workspace into the container</li>
+                <li>Docker Desktop: pull the <code>underworldcode/underworld2:2.15b</code> image; launch Jupyter via Docker</li>
+                <li>Volume-map your local workspace into the container workspace</li>
                 <li>Verify ParaView opens an XDMF file; confirm ImageJ launches</li>
                 <li>Test Python environment: numpy, h5py, matplotlib, lavavu</li>
                 <li>Troubleshoot cross-platform issues (Linux / macOS / Windows)</li>
@@ -804,13 +804,13 @@
         </div>
 
         <div class="timeline-item is-break">
-          <div class="timeline-time"><span class="time-start">10:30</span>11:00</div>
+          <div class="timeline-time"><span class="time-start">10:45</span>11:00</div>
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
               <span class="timeline-title">☕ Morning Break</span>
               <span class="timeline-tag tag-break">Break</span>
-              <span class="duration-badge">30 min</span>
+              <span class="duration-badge">15 min</span>
             </div>
           </div>
         </div>
@@ -861,7 +861,7 @@
             <div class="timeline-desc">
               <ul>
                 <li>UW2 model anatomy: Mesh → Swarm → Functions → Systems → Solver → Visualisation</li>
-                <li>Reading a model file: mesh creation, swarm particles, materialIndex, boundary conditions</li>
+                <li>Reading a model file: scaling, mesh creation, swarm particles, materialIndex, boundary conditions</li>
                 <li>The <code>Function</code> class: how to describe piecewise, temperature-dependent, or visco-plastic viscosities</li>
                 <li>Navigating official tutorials and the <code>UserGuide</code> notebooks</li>
                 <li>Live demo: open and run <code>01_GettingStarted</code> tutorial</li>
@@ -926,7 +926,7 @@
       <div class="timeline">
 
         <div class="timeline-item is-logistics">
-          <div class="timeline-time"><span class="time-start">08:30</span>09:00</div>
+          <div class="timeline-time"><span class="time-start">09:00</span>09:30</div>
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
@@ -935,25 +935,25 @@
               <span class="duration-badge">30 min</span>
             </div>
             <div class="timeline-desc">
-              Coffee; overnight questions; rapid recap of Day 1 concepts; review the tectonic sketches prepared as homework.
+              Coffee; rapid recap of Day 1 concepts; questions; review the tectonic sketches prepared as homework.
             </div>
           </div>
         </div>
 
         <div class="timeline-item is-handson">
-          <div class="timeline-time"><span class="time-start">09:00</span>10:30</div>
+          <div class="timeline-time"><span class="time-start">09:30</span>10:45</div>
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
               <span class="timeline-title">Build Your First Model — Part 1: Setup</span>
               <span class="timeline-tag tag-handson">Hands-on</span>
-              <span class="duration-badge">90 min</span>
+              <span class="duration-badge">75 min</span>
             </div>
             <div class="timeline-desc">
               <ul>
                 <li>Define 2D model geometry and resolution; choose physical dimensions and non-dimensionalisation</li>
                 <li>Initialise material layers (crust, lithospheric mantle, asthenosphere) using swarm particles</li>
-                <li>Assign viscoplastic rheology (power-law creep + Drucker–Prager yield criterion)</li>
+                <li>Assign (elasto-)visco-plastic rheology (power-law creep + Drucker–Prager yield criterion) depending on your needs</li>
                 <li>Set thermal and mechanical boundary conditions (free-slip, no-slip, fixed T, flux)</li>
                 <li>Configure the Stokes solver + energy equation (advection-diffusion); choose a time-step scheme</li>
               </ul>
@@ -962,13 +962,13 @@
         </div>
 
         <div class="timeline-item is-break">
-          <div class="timeline-time"><span class="time-start">10:30</span>11:00</div>
+          <div class="timeline-time"><span class="time-start">10:45</span>11:00</div>
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
               <span class="timeline-title">☕ Morning Break</span>
               <span class="timeline-tag tag-break">Break</span>
-              <span class="duration-badge">30 min</span>
+              <span class="duration-badge">15 min</span>
             </div>
           </div>
         </div>
@@ -984,7 +984,7 @@
             </div>
             <div class="timeline-desc">
               <ul>
-                <li>Run the model: time loop, update particle advection, checkpoint to HDF5/XDMF</li>
+                <li>Run the model: serial vs. parallel, time loop, update particle advection, checkpoint to HDF5/XDMF</li>
                 <li>Inline visualisation with LavaVu: temperature, velocity magnitude, material field</li>
                 <li>Checkpoint/restart workflow: save state, modify a parameter, resume</li>
                 <li>Diagnose solver convergence and common run-time errors</li>
@@ -1088,7 +1088,7 @@
               <span class="duration-badge">15 min</span>
             </div>
             <div class="timeline-desc">
-              Where to go next: Underworld3, UWGeodynamics module, HPC deployment. Community resources: underworldcode.org, GitHub, Binder notebooks. Certificate of participation.
+              Where to go next: Underworld3, UWGeodynamics module, HPC deployment. Community resources: underworldcode.org, GitHub, Binder notebooks. 
             </div>
           </div>
         </div>
@@ -1139,7 +1139,7 @@
               <li>From geological question to model design</li>
               <li>Physics selection &amp; parametrisation choices</li>
               <li>Constitutive equations: Stokes, heat equation</li>
-              <li>Viscous, viscoplastic, and visco-elastic rheologies</li>
+              <li>Viscous, visco-plastic, and visco-elasto-plastic rheologies</li>
               <li>FEM &amp; particle-in-cell numerical methods</li>
               <li>Discretisation: elements, resolution, time-stepping</li>
             </ul>
