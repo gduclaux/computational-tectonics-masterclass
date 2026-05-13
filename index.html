@@ -796,7 +796,7 @@
                 <li>Docker Desktop: pull the <code>underworldcode/underworld2:2.15.1b</code> image; launch Jupyter via Docker</li>
                 <li>Volume-map your local workspace into the container workspace</li>
                 <li>Verify ParaView opens an XDMF file; confirm ImageJ launches</li>
-                <li>Test Python environment: numpy, h5py, matplotlib, lavavu</li>
+                <li>(Test Python environment: numpy, h5py, matplotlib, lavavu)</li>
                 <li>Troubleshoot cross-platform issues (Linux / macOS / Windows)</li>
               </ul>
             </div>
@@ -827,8 +827,8 @@
             <div class="timeline-desc">
               <ul>
                 <li><strong>Be curious:</strong> start with a question — what geological process are we reproducing?</li>
-                <li>Selecting the correct physics: do I need the energy equation? Which flow law fits my rheology?</li>
-                <li>Parametrisation and coupling (brittle vs. viscous; phase changes; 2D vs. 3D trade-offs)</li>
+                <li>Selecting the correct physics: do I need the energy equation? Which flow law fits the rocks' rheology?</li>
+                <li>Parametrisation and coupling (brittle vs. viscous; phase changes; surface processes; 2D vs. 3D trade-offs)</li>
                 <li>Constitutive equations: Stokes flow, heat diffusion-advection, visco-elasto-plastic rheologies</li>
                 <li>Numerical methods overview: FEM, particle-in-cell, mesh vs. particles</li>
                 <li>Discretisation choices: element types, resolution, time-stepping, solver convergence</li>
@@ -862,9 +862,9 @@
               <ul>
                 <li>UW2 model anatomy: Mesh → Swarm → Functions → Systems → Solver → Visualisation</li>
                 <li>Reading a model file: scaling, mesh creation, swarm particles, materialIndex, boundary conditions</li>
-                <li>The <code>Function</code> class: how to describe piecewise, temperature-dependent, or visco-plastic viscosities</li>
-                <li>Navigating official tutorials and the <code>UserGuide</code> notebooks</li>
-                <li>Live demo: open and run <code>01_GettingStarted</code> tutorial</li>
+                <!--<li>The <code>Function</code> class: how to describe piecewise, temperature-dependent, or visco-plastic viscosities</li>-->
+                <li>Navigating UW2 official tutorials and the <code>UserGuide</code> notebooks</li>
+                <li>Live demo: open and run <code>Tutorial_1_ThermoMechanical_Model.ipynb</code> tutorial</li>
               </ul>
             </div>
           </div>
@@ -887,16 +887,17 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <span class="timeline-title">Guided Practice: Rifting example </span>
+              <span class="timeline-title">Guided Practice: Lateral Extrusion of Asia (plasticine experiment) </span>
               <span class="timeline-tag tag-handson">Hands-on</span>
               <span class="duration-badge">75 min</span>
             </div>
             <div class="timeline-desc">
               <ul>
-                <li>Run the classic SolCx Stokes benchmark; vary resolution and check convergence</li>
-                <li>Explore FE element types (Q1/dQ0, Q2/dQ1) and their accuracy trade-offs</li>
-                <li>Build a piecewise viscosity function using <code>fn.branching.map</code></li>
-                <li>Introduce the Rayleigh–Taylor instability notebook as a first multi-material example</li>
+                <li>Run the classic Tapponnier experiment</li>
+                <li>Explore FE element resolution and boundary conditions</li>
+                <li>Play with passive tracers, interfaces and finite strain markers</li>
+                <li>Introduce parallel jobs</li>
+                <li>Visualisation in Paraview</li>
                 <li>Collaborative Q&amp;A and troubleshooting — fix errors together</li>
               </ul>
             </div>
@@ -913,7 +914,7 @@
               <span class="duration-badge">15 min</span>
             </div>
             <div class="timeline-desc">
-              Recap key concepts; preview Day 2. <strong>Evening task:</strong> sketch the 2D cross-section of a tectonic system you want to model (rift, subduction, orogenic wedge, lithospheric drip…) — bring it tomorrow.
+              Recap key concepts; preview Day 2. <strong>Evening task:</strong> think about a simple geological question you would like to explore, sketch the 2D cross-section of a tectonic system you want to model (rift, subduction, orogenic wedge, lithospheric drip…) — let's discuss it in the forthcoming weeks and bring it next time
             </div>
           </div>
         </div>
@@ -984,10 +985,9 @@
             </div>
             <div class="timeline-desc">
               <ul>
-                <li>Run the model: serial vs. parallel, time loop, update particle advection, checkpoint to HDF5/XDMF</li>
+                <li>Run the model: serial then parallel, time loop, update particle advection, checkpoint to HDF5/XDMF</li>
                 <li>Inline visualisation with LavaVu: temperature, velocity magnitude, material field</li>
                 <li>Checkpoint/restart workflow: save state, modify a parameter, resume</li>
-                <li>Diagnose solver convergence and common run-time errors</li>
                 <li>Compare two model variants (e.g. different viscosity or boundary condition)</li>
               </ul>
             </div>
@@ -1049,7 +1049,7 @@
             </div>
             <div class="timeline-desc">
               <ul>
-                <li>Read HDF5 checkpoints with <code>h5py</code>; extract velocity, temperature, and pressure arrays</li>
+                <li>Extract velocity, srain rate, temperature, and pressure arrays for passive tracers</li>
                 <li>Compute diagnostic metrics: strain rate, temperature anomaly, Nusselt number, V<sub>rms</sub></li>
                 <li>Plot time series and spatial fields with matplotlib; overlay geological profiles</li>
                 <li>Building a reproducible, self-documented workflow notebook</li>
@@ -1071,6 +1071,7 @@
               <ul>
                 <li>How do we interpret model outputs geologically? Avoid over-interpretation pitfalls</li>
                 <li>Sensitivity tests and parameter space exploration (systematic vs. targeted)</li>
+                <li>Be aware of the model limitations - "All models are wrong, some are useful" [Box]</li>
                 <li>Linking model diagnostics to geological observables (thermochronology, kinematics, seismic structure)</li>
                 <li>Open discussion: participants share their tectonic sketches and preliminary model ideas</li>
               </ul>
@@ -1149,7 +1150,7 @@
             <div class="module-number">Module 3 · Hands-on</div>
             <div class="module-title">UW2 Nuts &amp; Bolts</div>
             <ul class="module-topics">
-              <li>UW2 model file anatomy (mesh → swarm → fn → system)</li>
+              <li>UW2 model file anatomy (scaling -> mesh → swarm → fn → system)</li>
               <li>The <code>Function</code> class: composable maths in Python</li>
               <li>Boundary conditions: mechanical &amp; thermal</li>
               <li>Navigating UserGuide tutorials &amp; examples</li>
@@ -1158,12 +1159,12 @@
 
           <div class="module">
             <div class="module-number">Module 4 · Practice</div>
-            <div class="module-title">Stokes Benchmarks &amp; Function Exploration</div>
+            <div class="module-title">UW2 Tutorial</div>
             <ul class="module-topics">
-              <li>SolCx benchmark: convergence with resolution</li>
-              <li>Element type comparison (Q1/dQ0 vs Q2/dQ1)</li>
-              <li>Piecewise viscosity with <code>fn.branching.map</code></li>
-              <li>Rayleigh–Taylor instability: multi-material intro</li>
+              <li>Rifting test: convergence with resolution</li>
+              <li>Lateral extrusion of Asia: the rigid indenter experiment</li>
+              <li>Dyke emplacement and cooling: the Great Dyke experiment</li>
+              <li>Salt tectonics: when gravity takes control</li>
             </ul>
           </div>
 
@@ -1239,29 +1240,90 @@
         <span class="code-block-label">Python · underworld2</span>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <pre><span class="comment"># 1. Mesh and finite element variables</span>
-mesh   = uw.mesh.FeMesh_Cartesian(elementRes=<span class="number">(64, 32)</span>,
-                                  minCoord=<span class="number">(0., 0.)</span>, maxCoord=<span class="number">(2., 1.)</span>)
-vField = mesh.add_variable(nodeDofCount=<span class="number">2</span>)  <span class="comment"># velocity</span>
-pField = mesh.subMesh.add_variable(nodeDofCount=<span class="number">1</span>)  <span class="comment"># pressure</span>
-tField = mesh.add_variable(nodeDofCount=<span class="number">1</span>)  <span class="comment"># temperature</span>
+      <pre>        
+<span class="comment"># Disable jedi autocompleter</span>
+%config Completer.use_jedi = False        
+<span class="comment"># 1. Load UW packages</span>
+from underworld import UWGeodynamics as GEO
+from underworld import visualisation as vis
+import numpy as np;
 
-<span class="comment"># 2. Particle swarm — track material properties</span>
-swarm   = uw.swarm.Swarm(mesh=mesh)
-matIdx  = swarm.add_variable(<span class="string">"int"</span>, <span class="number">1</span>)
-swarm.populate_using_layout(uw.swarm.layouts.PerCellSpaceFillerLayout(swarm, <span class="number">20</span>))
+<span class="comment"># 2. Set Scaling rules for non-dimensionalisation</span>
+u = GEO.UnitRegistry #
+velocity = <span class="number">1 * u.centimeter / u.year</span>
+model_length = <span class="number">100. * u.kilometer</span>
+bodyforce = <span class="number">3000 * u.kilogram / u.metre**3 * 9.81 * u.meter / u.second**2</span>
+baseModelTemp = <span class="number">1273.15 * u.degK</span>
+surfaceTemp = <span class="number">273.15 * u.degK</span>
 
-<span class="comment"># 3. Temperature-dependent viscosity via Function class</span>
-E_a    = fn.<span class="function">misc.constant</span>(<span class="number">23.03</span>)
-eta_fn = fn.<span class="function">math.exp</span>(E_a * (<span class="number">0.5</span> - tField))
+KL = model_length
+Kt = KL / velocity
+KM = bodyforce * KL**<span class="number">2</span> * Kt**<span class="number">2</span>
+KT = (baseModelTemp - surfaceTemp)
 
-<span class="comment"># 4. Coupled Stokes + advection-diffusion solvers</span>
-stokes = uw.systems.<span class="function">Stokes</span>(vField, pField, eta_fn,
-          fn_bodyforce=<span class="number">0.</span>*uw.unit_registry.<span class="function">dimensionless</span>)
-energy = uw.systems.<span class="function">AdvectionDiffusion</span>(tField, vField, diffusivity=<span class="number">1.0</span>)
+GEO.scaling_coefficients["[length]"] = KL <span class="comment"># length</span>
+GEO.scaling_coefficients["[time]"] = Kt <span class="comment"># time</span>
+GEO.scaling_coefficients["[mass]"]= KM <span class="comment"># mass</span>
+GEO.scaling_coefficients["[temperature]"] = KT <span class="comment"># temperature</span>
 
-solver = uw.systems.<span class="function">Solver</span>(stokes)
-solver.<span class="function">solve</span>()</pre>
+        
+<span class="comment"># 3. Instantiate the Model, set mesh and finite element</span>
+Model = GEO.Model(elementRes=<span class="number">(64, 32)</span>, 
+                  minCoord=<span class="number">(0. * u.kilometer, -45 * u.kilometer)</span>, 
+                  maxCoord=<span class="number">(100. * u.kilometer, 5 * u.kilometer)</span>, 
+                  gravity=<span class="number">(0.0, -9.81 * u.meter / u.second**2)</span>)
+
+<span class="comment"># Model outputs will be written in the following folder:</span>
+Model.outputDir=<span class="string">"result_model1"</span>
+
+<span class="comment"># 4. Define materials' geometry (swarm)</span>
+air = Model.add_material(name=<span class="string">"Air"</span>, shape=GEO.shapes.Layer2D(top=Model.top, bottom=Model.bottom))
+crust = Model.add_material(name=<span class="string">"Crust"</span>, shape=GEO.shapes.Layer2D(top=<span class="number">-0*u.kilometer</span>, bottom=Model.bottom))
+
+<span class="comment"># 5. Define materials'mechanical and thermal properties</span>
+air.density    = <span class="number">1. * u.kilogram / u.metre**3</span>
+crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700. * u.kilogram / u.metre**3</span>,
+                                        thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span>
+
+<span class="comment">#thermal diffusivity and heat capacity, and radiogenic heat production:</span>
+Model.diffusivity = <span class="number">9e-7 * u.metre**2 / u.second </span>
+Model.capacity    = <span class="number">1000. * u.joule / (u.kelvin * u.kilogram)</span>
+crust.radiogenicHeatProd = <span class="number">7.67e-7 * u.watt / u.meter**3</span>
+
+
+rh = GEO.ViscousCreepRegistry()
+air.viscosity    = 1.0e18  * u.pascal * u.second
+crust.viscosity  = 0.1 * rh.Wet_Olivine_Dislocation_Goetze_et_al_1978
+
+crust.plasticity = GEO.DruckerPrager(name="Continental Crust",
+                                                cohesion=15. * u.megapascal,
+                                                cohesionAfterSoftening=3. * u.megapascal,
+                                                frictionCoefficient=0.44,
+                                                frictionAfterSoftening=0.088,
+                                                epsilon1=0.0, epsilon2=0.5)
+
+
+
+Model.set_velocityBCs(left=[0 * u.centimeter / u.years, None],
+                      right=[0 * u.centimeter / u.years, None],
+                      bottom=[None, 0.0]);
+
+Model.set_temperatureBCs(top=293.15 * u.degK, 
+                         bottom=1273.15 * u.degK,
+                         materials=[(air, 293.15 * u.degK)]);
+
+
+Model.minViscosity = 1.0e18 * u.pascal * u.second
+Model.maxViscosity = 1.0e23 * u.pascal * u.second
+# now initialise the model T and P
+Model.init_model(temperature="steady-state", pressure="lithostatic")
+
+
+Model.solver.set_inner_method("mumps")
+Model.solver.set_penalty(1e6)
+Model.run_for(1.0* u.years, checkpoint_interval=1.0* u.years)
+      
+      </pre>
     </div>
 
   </div>
