@@ -1268,7 +1268,7 @@ GEO.scaling_coefficients[<span class="string">"[temperature]"</span>] = KT <span
 
         
 <span class="comment"># 3. Instantiate the Model, set mesh and finite element</span>
-Model = GEO.Model(elementRes=<span class="number">(64, 32)</span>, 
+<span class="function">Model</span> = GEO.Model(elementRes=<span class="number">(64, 32)</span>, 
                   minCoord=<span class="number">(0. * u.kilometer, -45 * u.kilometer)</span>, 
                   maxCoord=<span class="number">(100. * u.kilometer, 5 * u.kilometer)</span>, 
                   gravity=<span class="number">(0.0, -9.81 * u.meter / u.second**2)</span>)
@@ -1285,15 +1285,15 @@ air.density    = <span class="number">1. * u.kilogram / u.metre**3</span>
 crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700. * u.kilogram / u.metre**3</span>,
                                         thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span>
 
-<span class="comment"># thermal diffusivity and heat capacity, and radiogenic heat production:</span>
+<span class="comment"># thermal diffusivity, heat capacity, and radiogenic heat production:</span>
 <span class="function">Model</span>.diffusivity = <span class="number">9e-7 * u.metre**2 / u.second </span>
 <span class="function">Model</span>.capacity    = <span class="number">1000. * u.joule / (u.kelvin * u.kilogram)</span>
 crust.radiogenicHeatProd = <span class="number">7.67e-7 * u.watt / u.meter**3</span>
 
-<span class="comment"># viscosity and plasticity:</span>
+<span class="comment"># rheologies: viscosity and plasticity:</span>
 rh = GEO.ViscousCreepRegistry()
-air.viscosity    = <span class="number">1.0e18  * u.pascal * u.second</span>
-crust.viscosity  = <span class="number">0.1 *</span> <span class="string">rh.Wet_Olivine_Dislocation_Goetze_et_al_1978</span>
+air.viscosity    = <span class="number">1.0e18  * u.pascal * u.second</span><span class="comment"># constant value</span>
+crust.viscosity  = <span class="number">0.1 *</span> <span class="string">rh.Wet_Olivine_Dislocation_Goetze_et_al_1978</span><span class="comment"># loaded from registry</span>
 
 crust.plasticity = GEO.DruckerPrager(name=<span class="string">"Continental Crust"</span>,
                                                 cohesion=<span class="number">15. * u.megapascal</span>,
