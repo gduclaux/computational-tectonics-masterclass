@@ -1316,8 +1316,8 @@ crust.plasticity = GEO.DruckerPrager(name=<span class="string">"Continental Crus
 
 <span class="comment"># 7. run the model</span>
 
-<span class="function">Model</span>.minViscosity = <span class="number">1.0e18 * u.pascal * u.second</span><span class="comment"># model minimum viscosity threshold </span>
-<span class="function">Model</span>.maxViscosity = <span class="number">1.0e23 * u.pascal * u.second</span><span class="comment"># model maximum viscosity threshold </span>
+<span class="function">Model</span>.minViscosity = <span class="number">1.0e18 * u.pascal * u.second</span><span class="comment"> # model minimum viscosity threshold </span>
+<span class="function">Model</span>.maxViscosity = <span class="number">1.0e23 * u.pascal * u.second</span><span class="comment"> # model maximum viscosity threshold </span>
 
 <span class="comment"># now initialise the model at t=0 for T and P </span>
 <span class="function">Model</span>.init_model(temperature=<span class="string">"steady-state"</span>, pressure=<span class="string">"lithostatic"</span>)
