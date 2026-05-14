@@ -628,7 +628,7 @@
         <em>Computational Tectonics</em>
       </h1>
       <p class="hero-subtitle">
-        A hands-on intensive course for PhD candidates and researchers: use Underworld2 to forward-model the thermal and tectonic evolution of lithospheric systems, and test scientific hypotheses numerically.
+        A hands-on intensive course for PhD candidates and researchers: use Underworld2 to forward-model the thermal and tectonic evolution of lithospheric systems, and test scientific hypotheses numerically. This course is support bu UWA's International Advanced Studies' (IAS) Gledden Visting Fellowship.
       </p>
       <div class="hero-meta">
         <span class="hero-meta-item">
@@ -1240,7 +1240,7 @@
         <span class="code-block-label">Python · underworld2</span>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <pre><span class="comment"># Disable jedi autocompleter</span>
+      <pre><span class="comment"># Enable autocompletion with TAB key in Jupyter notebook</span>
 %config Completer.use_jedi = False    
         
 <span class="comment"># 1. Load UW packages</span>
@@ -1300,23 +1300,25 @@ crust.plasticity = GEO.DruckerPrager(name=<span class="string">"Continental Crus
                                                 cohesionAfterSoftening=<span class="number">3. * u.megapascal</span>,
                                                 frictionCoefficient=<span class="number">0.44</span>,
                                                 frictionAfterSoftening=<span class="number">0.088</span>,
-                                                epsilon1=<span class="number">0.0</span>, epsilon2=<span class="number">0.5</span>)
+                                                epsilon1=<span class="number">0.01</span>, epsilon2=<span class="number">0.5</span>)
 
 
 <span class="comment"># 6. Define thermal and velocity boundary conditions</span>
-<span class="function">Model</span>.set_velocityBCs(left=<span class="number">[0 * u.centimeter / u.years, None]</span>,
-                      right=<span class="number">[0 * u.centimeter / u.years, None]</span>,
+<span class="function">Model</span>.set_velocityBCs(left=<span class="number">[-1.0 * u.centimeter / u.years, None]</span>,
+                      right=<span class="number">[1.0 * u.centimeter / u.years, None]</span>,
                       bottom=<span class="number">[None, 0.0]</span>);
 
 <span class="function">Model</span>.set_temperatureBCs(top=<span class="number">293.15 * u.degK</span>, 
-                         bottom=<span class="number">1273.15 * u.degK</span>,
+                         bottom=<span class="number">873.15 * u.degK</span>,
                          materials=[<span class="number">(<span class="string">air</span>, 293.15 * u.degK)</span>]);
 
 
 
 <span class="comment"># 7. run the model</span>
-<span class="function">Model</span>.minViscosity = <span class="number">1.0e18 * u.pascal * u.second</span>
-<span class="function">Model</span>.maxViscosity = <span class="number">1.0e23 * u.pascal * u.second</span>
+
+<span class="function">Model</span>.minViscosity = <span class="number">1.0e18 * u.pascal * u.second</span><span class="comment"># model minimum viscosity threshold </span>
+<span class="function">Model</span>.maxViscosity = <span class="number">1.0e23 * u.pascal * u.second</span><span class="comment"># model maximum viscosity threshold </span>
+
 <span class="comment"># now initialise the model at t=0 for T and P </span>
 <span class="function">Model</span>.init_model(temperature=<span class="string">"steady-state"</span>, pressure=<span class="string">"lithostatic"</span>)
 
