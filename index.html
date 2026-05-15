@@ -1287,7 +1287,7 @@ crust = <span class="function">Model</span>.add_material(name=<span class="strin
 <span class="comment"># 5. Define materials'mechanical and thermal properties</span>
 air.density    = <span class="number">1. * u.kilogram / u.metre**3</span> <span class="comment"># \rho = constant value </span>
 crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700. * u.kilogram / u.metre**3</span>,
-                 thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span> <span class="code"># \rho = \rho_0 - \alpha\rho_0\left(T-T_0\right) </span>
+                 thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span> <span class="comment"># \rho = \rho_0 - \alpha\rho_0(T-T_0) </span>
 
 <span class="comment"># thermal diffusivity, heat capacity, and radiogenic heat production:</span>
 <span class="function">Model</span>.diffusivity = <span class="number">9e-7 * u.metre**2 / u.second </span>
