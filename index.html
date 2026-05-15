@@ -1252,8 +1252,8 @@ import numpy as np;
 u = GEO.UnitRegistry
 velocity = <span class="number">1 * u.centimeter / u.year</span>
 model_length = <span class="number">100. * u.kilometer</span>
-bodyforce = <span class="number">3000 * u.kilogram / u.metre**3 * 9.81 * u.meter / u.second**2</span>
-baseModelTemp = <span class="number">1273.15 * u.degK</span>
+bodyforce = <span class="number">2700 * u.kilogram / u.metre**3 * 9.81 * u.meter / u.second**2</span>
+baseModelTemp = <span class="number">873.15 * u.degK</span>
 surfaceTemp = <span class="number">273.15 * u.degK</span>
 
 KL = model_length
@@ -1282,8 +1282,7 @@ crust = <span class="function">Model</span>.add_material(name=<span class="strin
 
 <span class="comment"># 5. Define materials'mechanical and thermal properties</span>
 air.density    = <span class="number">1. * u.kilogram / u.metre**3</span>
-crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700. * u.kilogram / u.metre**3</span>,
-                                        thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span>
+crust.density  = GEO.LinearDensity(reference_density= <span class="number">2700. * u.kilogram / u.metre**3</span>,thermalExpansivity= <span class="number">2.8e-5 * u.kelvin**-1)</span> <span class="comment"># $\rho = \rho_0 - \alpha\rho_0\left(T-T_0\right)$</span>
 
 <span class="comment"># thermal diffusivity, heat capacity, and radiogenic heat production:</span>
 <span class="function">Model</span>.diffusivity = <span class="number">9e-7 * u.metre**2 / u.second </span>
